@@ -16,6 +16,7 @@ import javafx.scene.input.KeyEvent;
 
 public class Joueur {
 
+    public boolean sawAdd = false;
     private IntegerProperty hp = new SimpleIntegerProperty();
     private Arme arme;
     private ArmeDistance armeDistance;
@@ -29,6 +30,7 @@ public class Joueur {
     private IntegerProperty maxHP = new SimpleIntegerProperty();
     private IntegerProperty niveau;
     private QuestLine listeQuetes;
+    public int nbPas = 0;
 
     public Joueur(int x, int y, Terrain zone) {
         arme = new Gourdin(); // Le joueur commence avec un gourdin
