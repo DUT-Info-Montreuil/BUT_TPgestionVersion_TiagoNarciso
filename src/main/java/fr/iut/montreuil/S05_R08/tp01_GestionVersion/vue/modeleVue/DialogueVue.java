@@ -11,33 +11,34 @@ public class DialogueVue {
     private Pane pane;
     private Joueur joueur;
     public static long tempsDebutDialogue;
-    public DialogueVue(Label label, Pane pane, Joueur joueur){
-        this.label=label;
-        this.pane=pane;
-        this.joueur=joueur;
+
+    public DialogueVue(Label label, Pane pane, Joueur joueur) {
+        this.label = label;
+        this.pane = pane;
+        this.joueur = joueur;
     }
 
-    public void debutDialogueTimeSetter(long temps){
+    public void debutDialogueTimeSetter(long temps) {
         tempsDebutDialogue = temps;
     }
-    public void checkDialogueTimerOut(long tempsActuel){
+
+    public void checkDialogueTimerOut(long tempsActuel) {
         //si on reste 5 seconde la fenetre de dialogue disparait.
-        if (tempsActuel == tempsDebutDialogue+2000)
-           pane.setVisible(false);
+        if (tempsActuel == tempsDebutDialogue + 2000)
+            pane.setVisible(false);
     }
 
-    public void afficherDialogue(Acteur a){
+    public void afficherDialogue(Acteur a) {
         //partie visibilité
-        if(this.pane.isVisible())
-            this.pane.setVisible(false);
-        else
-            this.pane.setVisible(true);
-        //partie set text
+        this.pane.setVisible(!this.pane.isVisible());
 
+        //partie set text
+        Pnj pnj = (Pnj) a;
         if (!joueur.getListeQuetes().getQueteActuelle().getTitre().startsWith("Felicitation")) {
-            this.label.setText(((Pnj) a).getNextRepliques());
-        }
-        else{ this.label.setText(((Pnj) a).getRepliquesFinDuJeu().get(0)); }
+            this.label.setText(pnj.getNextRepliques());
+            if (pnj.getNom().equals("panneau"))
+                this.joueur.sawAdd = true;
+        } else this.label.setText(pnj.getRepliquesFinDuJeu().get(0));
     }
 }
 
