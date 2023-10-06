@@ -328,6 +328,7 @@ public class Controller implements Initializable {
     public void movePlayer(){
         if(joueur.manageCollisions(keyPressed)){
             //permet de récuperer l'ancienne valeur de la Tile du tableau de Spawn.
+            joueur.nbPas += 1;
             if(dx==1) joueur.moveRight();
             if(dx==-1) joueur.moveLeft();
             if(dy==1) joueur.moveDown();
