@@ -1,5 +1,6 @@
 package fr.iut.montreuil.S05_R08.tp01_GestionVersion.vue.modeleVue;
 
+import javafx.collections.ObservableList;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -9,7 +10,11 @@ import javafx.scene.layout.TilePane;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import fr.iut.montreuil.S05_R08.tp01_GestionVersion.controleur.*;
 import fr.iut.montreuil.S05_R08.tp01_GestionVersion.modele.Joueur;
@@ -158,41 +163,40 @@ public class TerrainVue {
     }
 
     private Image tileSet;
-    
-    public void chargerTextures (int [][] tab, TilePane tilepane){
+
+    public void chargerTextures(int[][] tab, TilePane tilepane) {
         //Chargement des textures
-       if(tileSet == null) {
-    	   System.out.println("Premier chargement de la tileSet");
-    	   try {
-    		  File tsFile = new File("src/main/java/fr/iut/montreuil/S05_R08/tp01_GestionVersion/ressources/tilemaps/allTiles.png");
-    		  tileSet = new Image(tsFile.toURI().toURL().toString());
-    	   } catch (MalformedURLException e) {
-   			// TODO Auto-generated catch block
-   			e.printStackTrace();
-   			System.out.println("Erreur ! de chargement de la texture de terrainVue");
-   			}
-    	}
-       else {
-    	   System.out.println("TileSet existante : "+ tileSet.toString());
-       }
-		
+        if (tileSet == null) {
+            System.out.println("Premier chargement de la tileSet");
+            try {
+                File tsFile = new File("src/main/java/fr/iut/montreuil/S05_R08/tp01_GestionVersion/ressources/tilemaps/allTiles.png");
+                tileSet = new Image(tsFile.toURI().toURL().toString());
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                System.out.println("Erreur ! de chargement de la texture de terrainVue");
+            }
+        } else {
+            System.out.println("TileSet existante : " + tileSet.toString());
+        }
+
         tilepane.getChildren().clear();
-        for(int i = 0; i<tab.length ; i++){
-            for(int j = 0; j<tab[i].length ; j++){
-                if(tab[i][j]!=-1) {
+
+        for (int i = 0; i < tab.length; i++) {
+            for (int j = 0; j < tab[i].length; j++) {
+                if (tab[i][j] != -1) {
                     ImageView tile = new ImageView(tileSet);
-                    Rectangle2D cut = new Rectangle2D((int)(tab[i][j]%(tileSet.getWidth()/16))*16,
-                            (int) (tab[i][j]/(tileSet.getWidth()/16))*16, 16, 16);
+                    Rectangle2D cut = new Rectangle2D((int) (tab[i][j] % (tileSet.getWidth() / 16)) * 16,
+                            (int) (tab[i][j] / (tileSet.getWidth() / 16)) * 16, 16, 16);
                     tile.setViewport(cut);
                     tilepane.getChildren().add(tile);
-                }
-                else{
+                } else {
                     tilepane.getChildren().add(new ImageView(imageMap.getImage("empty")));
                 }
             }
         }
-		
     }
+
     public void creerNuage(){
     	try {
         ImageView nuage = new ImageView(new Image(new File("src/main/java/fr/iut/montreuil/S05_R08/tp01_GestionVersion/ressources/cloud.png").toURI().toURL().toString()));
