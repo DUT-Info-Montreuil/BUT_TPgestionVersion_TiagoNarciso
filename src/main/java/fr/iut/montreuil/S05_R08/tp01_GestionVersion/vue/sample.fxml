@@ -1211,7 +1211,7 @@
                         </ImageView>
                         <VBox prefHeight="177.0" prefWidth="618.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="105.0" prefWidth="886.0" text="Tales of BaBage" textFill="#d38b0d">
+                              <Label alignment="CENTER" prefHeight="105.0" prefWidth="886.0" text="Une histoire de BaBage" textFill="#d38b0d">
                                  <font>
                                     <Font size="43.0" />
                                  </font>
@@ -1227,7 +1227,7 @@
                                     <Insets top="-40.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label alignment="CENTER" prefHeight="43.0" prefWidth="898.0" text="A creation of ToutSaufMongodb Pitié - Maven Edition Hacked By Narciso Tiago and Naulan CHRZASZCZ" textFill="#c39d60">
+                              <Label alignment="CENTER" prefHeight="43.0" prefWidth="898.0" text="Une création de ToutSaufMongodb Pitié - Maven Edition Hacked par Narciso Tiago et Naulan CHRZASZCZ" textFill="#c39d60">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
