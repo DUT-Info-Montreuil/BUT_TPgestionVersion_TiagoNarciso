@@ -131,7 +131,7 @@
                         </ImageView>
                         <ImageView fx:id="inventoryViande" fitHeight="25.0" fitWidth="25.0" layoutX="83.0" layoutY="18.0" onMouseClicked="#setDescription" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../ressources/HUD/objet/beef.png" />
+                              <Image url="@../ressources/HUD/objet/bread.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -654,7 +654,7 @@
                         </ImageView>
                         <ImageView fx:id="inventoryViande" fitHeight="16.0" fitWidth="16.0" layoutX="83.0" layoutY="18.0" onMouseClicked="#setDescription" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../ressources/HUD/objet/beef.png" />
+                              <Image url="@../ressources/HUD/objet/bread.png" />
                            </image>
                            <HBox.margin>
                               <Insets right="3.0" />
