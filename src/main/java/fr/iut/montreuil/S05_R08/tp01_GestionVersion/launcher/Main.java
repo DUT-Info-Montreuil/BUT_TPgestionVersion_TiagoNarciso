@@ -29,7 +29,7 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image(new File("src/main/java/fr/iut/montreuil/S05_R08/tp01_GestionVersion/ressources/logo.png").toURI().toURL().toString()));
         scene.setOnKeyPressed(Controller::keyManager);
         scene.setOnKeyReleased(Controller::keyReleaseManager);
-        primaryStage.setTitle("Tales of BaBage Bruuuuhhh Edition");
+        primaryStage.setTitle("Une histoire de BaBage édition Bruuuuhhh");
         primaryStage.setScene(scene);
 
 
